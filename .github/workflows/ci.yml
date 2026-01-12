@@ -1,0 +1,20 @@
+name: CI - Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      # Step 2: Build Docker image from Source Code folder
+      - name: Build Docker image
+        run: |
+          docker build -t frontend-app "./CI-CD Pipeline for Dockerized App/Source Code"
